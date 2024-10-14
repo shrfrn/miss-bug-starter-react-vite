@@ -52,6 +52,8 @@ export function BugIndex() {
 
 	async function onEditBug(bug) {
 		const severity = +prompt('New severity?')
+        if (!severity) return
+
 		const bugToSave = { ...bug, severity }
 		try {
 			const savedBug = await bugService.save(bugToSave)

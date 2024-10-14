@@ -8,8 +8,8 @@ export function UserMsg() {
 	useEffect(() => {
 		const unsubscribe = eventBusService.on('show-user-msg', msg => {
             if (timeoutIdRef.current) {
-                timeoutIdRef.current = null
 				clearTimeout(timeoutIdRef.current)
+                timeoutIdRef.current = null
 			}
             setMsg(msg)
 			timeoutIdRef.current = setTimeout(closeMsg, 3000)
@@ -17,13 +17,19 @@ export function UserMsg() {
 		return unsubscribe
 	}, [])
 
+    function classList() {
+        const classList = ['user-msg']
+
+        if (msg) classList.push('msg-visible', msg.type)
+        return classList.join(' ')
+    }
+
 	function closeMsg() {
 		setMsg(null)
 	}
 
-	if (!msg) return <span></span>
-	return <section className={`user-msg ${msg.type}`}>
+	return <section className={classList()}>
         <button onClick={closeMsg}>x</button>
-        <p>{msg.txt}</p>
+        <p>{msg && msg.txt}</p>
     </section>
 }

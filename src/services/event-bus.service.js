@@ -1,5 +1,6 @@
 function createEventEmitter() {
     const listenersMap = {}
+
     return {
         on(evName, listener){
             listenersMap[evName] = (listenersMap[evName])? [...listenersMap[evName], listener] : [listener]
@@ -21,10 +22,11 @@ export function showUserMsg(msg) {
 }
 
 export function showSuccessMsg(txt) {
-    showUserMsg({txt, type: 'success'})
+    showUserMsg({ txt, type: 'success' })
 }
+
 export function showErrorMsg(txt) {
-    showUserMsg({txt, type: 'error'})
+    showUserMsg({ txt, type: 'error' })
 }
 
 

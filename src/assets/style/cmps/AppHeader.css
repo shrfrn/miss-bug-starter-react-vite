@@ -1,5 +1,5 @@
 .app-header {
-    height: 5vh;
+    min-height: 5vh;
 
     background-color: var(--clr1bg);
     color: var(--clr1bg-light);

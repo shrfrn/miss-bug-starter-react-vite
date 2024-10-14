@@ -16,4 +16,6 @@
 .bug-list .actions {
     display: flex;
     gap: .5em;
+
+    align-self: end;
 }

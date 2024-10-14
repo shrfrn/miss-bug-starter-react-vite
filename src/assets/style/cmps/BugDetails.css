@@ -1,14 +1,27 @@
-.bug-details h3 {
+.bug-details {
+    display: grid;
+    grid-template-rows: repeat(3, auto) 1fr;
+    align-content: start;
+
+    padding: 1em;
+    background-color: var(--gray1);
+    margin-block: 100px;
+}
+
+.bug-details h1 {
     color: var(--clr1);
     font-size: 2em;
 }
 
-.bug-details h4 {
+.bug-details h2 {
     color: var(--clr2);
 }
 
-.bug-details img {
-    max-width: 200px;
-    display: block;
-    margin: auto;
+.bug-details > *:not(a) {
+    grid-column: 1;
+}
+
+.bug-details a {
+    grid-area: 4 / 2;
+    place-self: end;
 }
