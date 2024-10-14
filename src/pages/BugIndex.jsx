@@ -14,8 +14,14 @@ export function BugIndex() {
 	}, [])
 
 	async function loadBugs() {
-		const bugs = await bugService.query()
-		setBugs(bugs)
+        try {
+            const bugs = await bugService.query()
+            setBugs(bugs)
+            showErrorMsg('Bugs loaded')
+        } catch (err) {
+			console.log('Error loading bugs ->', err)
+			showErrorMsg('Cannot load bugs')
+        }
 	}
 
 	async function onRemoveBug(bugId) {
@@ -57,13 +63,13 @@ export function BugIndex() {
 		}
 	}
 
-	return (
-		<main className="main-layout">
-			<h3>Bugs App</h3>
-			<main>
-				<button onClick={onAddBug}>Add a Bug</button>
-				<BugList bugs={bugs} onRemoveBug={onRemoveBug} onEditBug={onEditBug} />
-			</main>
-		</main>
-	)
+	return <main className="bug-index">
+        <header>
+            <h2>Your Bug List</h2>
+            <button onClick={onAddBug}>Add a Bug</button>
+        </header>
+        <main>
+            <BugList bugs={bugs} onRemoveBug={onRemoveBug} onEditBug={onEditBug} />
+        </main>
+    </main>
 }

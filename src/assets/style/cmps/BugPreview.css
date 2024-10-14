@@ -1,16 +1,4 @@
-.bug-preview {
-    text-align: center;
-    padding: 0.3em;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.bug-preview h4 {
+.bug-preview h2 {
     text-transform: capitalize;
     color: black;
-}
-
-.bug-preview img {
-    max-width: 100px;
 }

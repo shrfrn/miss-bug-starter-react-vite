@@ -1,0 +1,11 @@
+.bug-index header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding-block-start: 1em;
+}
+
+.bug-index header h2 {
+    margin: 0;
+}
